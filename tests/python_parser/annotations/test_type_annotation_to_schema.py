@@ -1,7 +1,7 @@
 from typing import Any, Dict, List
 
 import pytest
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 from declarai.python_parser.annotations.type_annotation_to_schema import (
     type_annotation_to_str_schema,
@@ -20,6 +20,7 @@ class MockComplexModelArray(BaseModel):
 
 class MockComplexModelDict(BaseModel):
     name: str
+    property: str = Field(description="Describe this field")
     children: Dict[str, MockSimpleModel]
 
 
@@ -61,6 +62,7 @@ class MockComplexModelDict(BaseModel):
             MockComplexModelDict,
             "{{\n"
             '    "name": "string",\n'
+            '    "property": "string - Describe this field",\n'
             '    "children": {{\n'
             '        "name": "string",\n'
             '        "numbers": [\n'
