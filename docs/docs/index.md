@@ -142,6 +142,7 @@ class Animal(BaseModel):
     name: str
     family: str
     leg_count: int = Field(description="The number of legs")
+    id: str | int = Field(description="A unique identifier")
 
 
 @declarai.task

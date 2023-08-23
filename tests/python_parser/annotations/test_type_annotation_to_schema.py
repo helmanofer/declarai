@@ -20,7 +20,7 @@ class MockComplexModelArray(BaseModel):
 
 class MockComplexModelDict(BaseModel):
     name: str
-    property: str = Field(description="Describe this field")
+    id: str | int = Field(description="Describe this field")
     children: Dict[str, MockSimpleModel]
 
 
@@ -62,7 +62,7 @@ class MockComplexModelDict(BaseModel):
             MockComplexModelDict,
             "{{\n"
             '    "name": "string",\n'
-            '    "property": "string - Describe this field",\n'
+            '    "id": "string or integer - Describe this field",\n'
             '    "children": {{\n'
             '        "name": "string",\n'
             '        "numbers": [\n'
